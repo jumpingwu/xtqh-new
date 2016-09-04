@@ -25,6 +25,7 @@ public class ProcessInstanceController {
 	@Autowired
 	private ProcessInstanceService processInstanceService;
 	
+	
 	@Autowired
 	private TaskInstanceService taskInstanceService;
 
@@ -60,50 +61,50 @@ public class ProcessInstanceController {
 	 */
 	@RequestMapping("/CreateSampleProcess")
 	public String saveTaskInstance(Model model){
-		ProcessInstance pi = new ProcessInstance("测试流程");
+		ProcessInstance pi = new ProcessInstance("娴嬭瘯娴佺▼");
 		
-		TaskInstance ti1 = new TaskInstance("停止应用程序");
+		TaskInstance ti1 = new TaskInstance("鍋滄搴旂敤绋嬪簭");
 		pi.addTaskInstance(ti1);
 		
-		StepInstance si1 = new StepInstance("停应用程序");
+		StepInstance si1 = new StepInstance("鍋滃簲鐢ㄧ▼搴�");
 		si1.setAutomatic(true);
 		si1.setOperationExecutionOrder(OperationExecutionOrder.PARALLE);
 		ti1.addStepInstance(si1);
-		OperationInstance oi1= new OperationInstance("停app1应用程序");
-		OperationInstance oi2= new OperationInstance("停app2应用程序");
+		OperationInstance oi1= new OperationInstance("鍋渁pp1搴旂敤绋嬪簭");
+		OperationInstance oi2= new OperationInstance("鍋渁pp2搴旂敤绋嬪簭");
 		si1.addOperationInstance(oi1);
 		si1.addOperationInstance(oi2);
 		
-		StepInstance si2 = new StepInstance("检查应用程序停止情况");
+		StepInstance si2 = new StepInstance("妫�鏌ュ簲鐢ㄧ▼搴忓仠姝㈡儏鍐�");
 		si2.setAutomatic(true);
 		si2.setOperationExecutionOrder(OperationExecutionOrder.PARALLE);
 		si1.addSuccessor(si2);
 		ti1.addStepInstance(si2);
-		OperationInstance oi3= new OperationInstance("检查app1应用停止情况");
-		OperationInstance oi4= new OperationInstance("检查app2应用停止情况");
+		OperationInstance oi3= new OperationInstance("妫�鏌pp1搴旂敤鍋滄鎯呭喌");
+		OperationInstance oi4= new OperationInstance("妫�鏌pp2搴旂敤鍋滄鎯呭喌");
 		si2.addOperationInstance(oi3);
 		si2.addOperationInstance(oi4);
 		
-		TaskInstance ti2 = new TaskInstance("停止数据库");
+		TaskInstance ti2 = new TaskInstance("鍋滄鏁版嵁搴�");
 		pi.addTaskInstance(ti2);
 		ti1.addSuccessor(ti2);
 		
-		StepInstance si3 = new StepInstance("停数据库");
+		StepInstance si3 = new StepInstance("鍋滄暟鎹簱");
 		si3.setAutomatic(true);
 		si3.setOperationExecutionOrder(OperationExecutionOrder.SERIAL);
 		ti2.addStepInstance(si3);
-		OperationInstance oi5= new OperationInstance("停db1的数据库");
-		OperationInstance oi6= new OperationInstance("停db2的数据库");
+		OperationInstance oi5= new OperationInstance("鍋渄b1鐨勬暟鎹簱");
+		OperationInstance oi6= new OperationInstance("鍋渄b2鐨勬暟鎹簱");
 		si3.addOperationInstance(oi5);
 		si3.addOperationInstance(oi6);
 		
-		StepInstance si4 = new StepInstance("检查数据库状态");
+		StepInstance si4 = new StepInstance("妫�鏌ユ暟鎹簱鐘舵��");
 		si4.setAutomatic(true);
 		si4.setOperationExecutionOrder(OperationExecutionOrder.PARALLE);
 		ti2.addStepInstance(si4);
 		si3.addSuccessor(si4);
-		OperationInstance oi7= new OperationInstance("检查db1的数据库状态");
-		OperationInstance oi8= new OperationInstance("检查db2的数据库状态");
+		OperationInstance oi7= new OperationInstance("妫�鏌b1鐨勬暟鎹簱鐘舵��");
+		OperationInstance oi8= new OperationInstance("妫�鏌b2鐨勬暟鎹簱鐘舵��");
 		si4.addOperationInstance(oi7);
 		si4.addOperationInstance(oi8);
 			
