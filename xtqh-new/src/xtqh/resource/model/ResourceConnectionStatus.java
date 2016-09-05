@@ -13,6 +13,8 @@ import xtqh.execution.model.AnsibleServer;
  */
 public class ResourceConnectionStatus extends BaseEntity {
 
+	private Resource resource;
+	
 	private AnsibleServer ansibleServer;
 	/**
 	 * 该ansible server对该资源是否可达
