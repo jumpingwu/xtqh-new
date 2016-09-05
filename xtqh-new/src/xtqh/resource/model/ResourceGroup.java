@@ -1,9 +1,10 @@
 package xtqh.resource.model;
 
 import java.util.List;
+import java.util.Map;
 
 import xtqh.base.model.BaseEntity;
-import xtqh.process.model.ProcessVersion;
+//import xtqh.process.model.ProcessVersion;
 
 /**
  * 资源组
