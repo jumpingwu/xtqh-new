@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import xtqh.base.orm.PersistService;
 import xtqh.business.ResourceService;
+import xtqh.business.bean.BResource;
 import xtqh.util.HibernateTools;
 
 @Service("ResourceService")
@@ -20,7 +21,7 @@ public class ResourceServiceImpl implements ResourceService {
 	private PersistService persist;
 
 	@Override
-	public List<xtqh.business.bean.BResource> getResourceList() {
+	public List<BResource> getResourceList() {
 		// TODO Auto-generated method stub
 		List<xtqh.dao.entity.Resource> listResource = hibernate.getAll(xtqh.dao.entity.Resource.class);
 

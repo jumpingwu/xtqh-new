@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }/css/style.css" />
 
+<link rel="stylesheet" type="text/css" href="${ctx }/css/ui.jqgrid.css" />
 
 <script type="text/javascript" src="${ctx }/js/jqueryUI1.12/external/jquery/jquery.js"></script>
 <script type="text/javascript" src="${ctx }/js/jqueryUI1.12/jquery-ui.js"></script>
@@ -20,3 +21,7 @@
 <script type="text/javascript" src="${ctx }/js/common-utils.js"></script>
 <script type="text/javascript" src="${ctx }/js/H-ui.admin.js"></script>
 <script type="text/javascript" src="${ctx }/js/H-ui.js"></script>
+
+<script type="text/javascript" src="${ctx }/js/grid.locale-cn.js"></script>
+<script type="text/javascript" src="${ctx }/js/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="${ctx }/js/jquery.jqGrid.src.js"></script>

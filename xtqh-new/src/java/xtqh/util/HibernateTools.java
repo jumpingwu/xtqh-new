@@ -38,7 +38,8 @@ public class HibernateTools {
 	}
 
 	public <T> List<T> getAll(Class<T> entityType) {
-		Session session = this.getSessionFactory().getCurrentSession();
+		// Session session = this.getSessionFactory().getCurrentSession();
+		Session session = this.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(entityType);
 		return (List<T>) criteria.list();
 	}
