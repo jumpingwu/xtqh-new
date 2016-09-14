@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import xtqh.business.ResourceService;
 import xtqh.business.bean.BResource;
+import xtqh.business.exception.BusinessException;
+import xtqh.controller.exception.PortalException;
 
 @Controller
 @RequestMapping("/resourceManager/resource")
@@ -23,11 +25,18 @@ public class ResourceController {
 	private ResourceService resourceService;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String fetchResourceList(HttpServletRequest request, HttpServletResponse response, Model model,
-			ModelAndView modelAndView) {
+	public ModelAndView fetchResourceList(HttpServletRequest request, HttpServletResponse response, Model model,
+			ModelAndView modelAndView) throws PortalException {
 
-		List<BResource> resourceList = resourceService.getResourceList();
+		try {
+			List<BResource> resourceList = resourceService.getResourceList();
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
 
-		return "ProcessInstanceList";
+		modelAndView.setViewName("forward:/pages/resource/resourceList.jsp");
+		return modelAndView;
 	}
 }
