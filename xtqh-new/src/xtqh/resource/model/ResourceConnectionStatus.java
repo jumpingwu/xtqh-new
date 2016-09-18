@@ -1,3 +1,4 @@
+
 package xtqh.resource.model;
 
 import java.util.Date;
