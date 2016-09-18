@@ -2,8 +2,11 @@ package xtqh.resource.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import xtqh.base.model.BaseEntity;
-import xtqh.execution.model.AnsibleServer;
+//import xtqh.execution.model.AnsibleServer;
 
 /**
  * 资源对ansible server可达情况
@@ -11,11 +14,13 @@ import xtqh.execution.model.AnsibleServer;
  * @version 1.0
  * @created 02-九月-2016 20:57:37
  */
+@Entity
+@Table(name="TB_RESOURCECONNECTIONSTATUS")
 public class ResourceConnectionStatus extends BaseEntity {
 
 	private Resource resource;
 	
-	private AnsibleServer ansibleServer;
+//	private AnsibleServer ansibleServer;
 	/**
 	 * 该ansible server对该资源是否可达
 	 */
