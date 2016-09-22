@@ -8,14 +8,14 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import xtqh.base.orm.PersistService;
-import xtqh.business.ResourceService;
+import xtqh.business.BResourceService;
 import xtqh.business.bean.BResource;
 import xtqh.business.exception.BusinessException;
 import xtqh.util.BeanUtil;
 import xtqh.util.HibernateTools;
 
-@Service("ResourceService")
-public class ResourceServiceImpl implements ResourceService {
+@Service("BResourceService")
+public class BResourceServiceImpl implements BResourceService {
 
 	@Resource(name = "HibernateTools")
 	private HibernateTools hibernate;
@@ -38,6 +38,8 @@ public class ResourceServiceImpl implements ResourceService {
 				BeanUtil.copyProperties(bResource, listResource.get(i));
 				bResourceList.add(bResource);
 			}
+		} else {
+			// throw new BusinessException("");
 		}
 
 		return bResourceList;

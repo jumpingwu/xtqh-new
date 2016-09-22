@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/css/jueryUI1.12/jquery-ui.css" />
+	href="${ctx }/css/jueryUI1.12/jquery-ui.css?var=2" />
 <link rel="stylesheet" type="text/css"
 	href="${ctx }/css/jueryUI1.12/jquery-ui.min.css" />
 <link rel="stylesheet" type="text/css"
@@ -32,9 +32,9 @@
 <script type="text/javascript" src="${ctx }/js/H-ui.admin.js"></script>
 <script type="text/javascript" src="${ctx }/js/H-ui.js"></script>
 <!-- JGrid -->
-<script type="text/javascript" src="${ctx }/js/grid.locale-cn.js"></script>
-<script type="text/javascript" src="${ctx }/js/jquery.jqGrid.min.js"></script>
-<script type="text/javascript" src="${ctx }/js/jquery.jqGrid.src.js"></script>
+<script type="text/javascript" src="${ctx }/js/jqGrid/grid.locale-cn.js"></script>
+<script type="text/javascript" src="${ctx }/js/jqGrid/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="${ctx }/js/jqGrid/jquery.jqGrid.src.js"></script>
 <!-- GoJs -->
 <script type="text/javascript" src="${ctx }/js/gojs/go.js"></script>
 <!-- Layer -->

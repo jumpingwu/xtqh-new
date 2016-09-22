@@ -44,6 +44,9 @@ public class Resource extends BaseEntity {
 
 	@Column(name = "NAME", columnDefinition = "VARCHAR(50)")
 	private String name;
+	
+	@Column(name = "HOSTNAME", columnDefinition = "VARCHAR(100)")
+	private String hostname;
 
 	@Column(name = "CONTROLLING_IP", columnDefinition = "VARCHAR(50)")
 	private String controlling_ip;
@@ -129,6 +132,14 @@ public class Resource extends BaseEntity {
 
 	public void setResource_id(String resource_id) {
 		this.resource_id = resource_id;
+	}
+
+	public String getHostname() {
+		return hostname;
+	}
+
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
 	}
 
 	// public List<Property> getProperties() {
