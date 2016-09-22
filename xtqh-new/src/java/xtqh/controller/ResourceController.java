@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,7 +45,7 @@ public class ResourceController extends BaseController {
 			/**
 			 * 查询对应的resourceList
 			 */
-			resourceList = bResourceService.getResourceList(this.getPaginationParameter(), parMap);
+			resourceList = bResourceService.getResourceList(parMap, this.getPaginationParameter());
 
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block

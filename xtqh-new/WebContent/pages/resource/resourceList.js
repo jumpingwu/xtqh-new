@@ -20,11 +20,12 @@ function loadResourceList() {
 						altclass : 'alteColor',
 						postData : getPostData(),
 						rownumbers : true,
-						colNames : [ '全选', '资源名称', '资源类型' ],
+						colNames : [ '全选', '资源名称', '资源类型', '资源地点', '控制IP地址',
+								'主机名', '资源ip', '所属应用系统', '资源状态', '操作' ],
 						colModel : [
 								{
-									name : 'resource_id',
-									index : 'resource_id',
+									name : 'resourceId',
+									index : 'resourceId',
 									align : "left",
 									sortable : false,
 									width : 30,
@@ -32,20 +33,90 @@ function loadResourceList() {
 										return '<input type="checkbox" name="resourceCheck" value="'
 												+ val + '"/>';
 									}
-								}, {
+								},
+								{
 									name : 'name',
 									index : 'name',
 									align : "left",
 									sortable : true,
 									sortname : 'name',
 									width : 150
-								}, {
-									name : 'resource_type',
-									index : 'resource_type',
+								},
+								{
+									name : 'resourceType',
+									index : 'resourceType',
 									align : "left",
 									sortable : true,
-									sortname : 'resource_type',
+									sortname : 'resourceType',
 									width : 150
+								},
+								{
+									name : 'location',
+									index : 'location',
+									align : "left",
+									sortable : true,
+									sortname : 'location',
+									width : 150
+								},
+								{
+									name : 'controllingIp',
+									index : 'controllingIp',
+									align : "left",
+									sortable : true,
+									sortname : 'controllingIp',
+									width : 150
+								},
+								{
+									name : 'hostname',
+									index : 'hostname',
+									align : "left",
+									sortable : true,
+									sortname : 'hostname',
+									width : 150
+								},
+								{
+									name : 'resourceIp',
+									index : 'resourceIp',
+									align : "left",
+									sortable : true,
+									sortname : 'resourceIp',
+									width : 150
+								},
+								{
+									name : 'applicationNames',
+									index : 'applicationNames',
+									align : "left",
+									sortable : true,
+									sortname : 'applicationNames',
+									width : 150
+								},
+								{
+									name : 'status',
+									index : 'status',
+									align : "left",
+									sortable : true,
+									sortname : 'status',
+									width : 150
+								},
+								{
+									name : 'resourceId',
+									index : 'resourceId',
+									align : "left",
+									sortable : true,
+									sortname : 'resourceId',
+									width : 150,
+									formatter : function(val, options, rowdata) {
+										var status = rowdata.rule_status;
+										var display = '';
+										display = '<a href="javascript:editResource('
+												+ val + ')" >编辑</a> ';
+
+										display = display
+												+ '<a href="javascript:viewResourceDetail('
+												+ val + ')" >查看</a> ';
+
+										return display;
+									}
 								} ],
 						jsonReader : {
 							root : "records",
@@ -76,6 +147,33 @@ function getPostData() {
 	return {
 		'searchKey' : encodeURI($("#searchKey").val())
 	};
+}
+
+/**
+ * resource 编辑
+ * 
+ * @param resourceId
+ * @returns
+ */
+function editResource(resourceId) {
+	alert("edit resource!");
+}
+/**
+ * resource 查看
+ * 
+ * @param resourceId
+ * @returns
+ */
+function viewResourceDetail(resourceId) {
+	alert("view resource detail!");
+}
+
+function searchResourceList() {
+	$("#resourceList").jqGrid('setGridParam', {
+		datatype : 'json',
+		postData : getPostData(),
+		page : 1
+	}).trigger("reloadGrid"); // 重新载入
 }
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -21,16 +21,16 @@ import xtqh.dao.entity.mapping.M_Resource_ResourceConnectionStatus;
 
 /**
  * 
-
-  * @ClassName: Resource
-
-  * @Description: TODO
-
-  * @author Comsys-Yan Fugen
-
-  * @date Sep 13, 2016 3:29:46 PM
-
-  *
+ * 
+ * @ClassName: Resource
+ * 
+ * @Description: TODO
+ * 
+ * @author Comsys-Yan Fugen
+ * 
+ * @date Sep 13, 2016 3:29:46 PM
+ *
+ * 
  */
 @Entity
 @Table(name = "RESOURCE")
@@ -40,16 +40,16 @@ public class Resource extends BaseEntity {
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	@Column(name = "ID", columnDefinition = "CHAR(36)")
-	private String resource_id;
+	private String resourceId;
 
 	@Column(name = "NAME", columnDefinition = "VARCHAR(50)")
 	private String name;
-	
+
 	@Column(name = "HOSTNAME", columnDefinition = "VARCHAR(100)")
 	private String hostname;
 
 	@Column(name = "CONTROLLING_IP", columnDefinition = "VARCHAR(50)")
-	private String controlling_ip;
+	private String controllingIp;
 
 	@Column(name = "FROM_CMDB")
 	@org.hibernate.annotations.Type(type = "yes_no")
@@ -68,7 +68,6 @@ public class Resource extends BaseEntity {
 	@OneToMany(mappedBy = "resourceConnectionStatus", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.REFRESH, CascadeType.REMOVE }, fetch = FetchType.LAZY)
 	private List<M_Resource_ResourceConnectionStatus> connectionStatus;
-
 
 	public Set<M_Resource_Property> getResourceProperty() {
 		return resourceProperty;
@@ -94,13 +93,6 @@ public class Resource extends BaseEntity {
 		this.name = name;
 	}
 
-	public String getControlling_ip() {
-		return controlling_ip;
-	}
-
-	public void setControlling_ip(String controlling_ip) {
-		this.controlling_ip = controlling_ip;
-	}
 
 	public boolean isFromCMDB() {
 		return fromCMDB;
@@ -126,12 +118,20 @@ public class Resource extends BaseEntity {
 		this.resourceType = resourceType;
 	}
 
-	public String getResource_id() {
-		return resource_id;
+	public String getResourceId() {
+		return resourceId;
 	}
 
-	public void setResource_id(String resource_id) {
-		this.resource_id = resource_id;
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+	}
+
+	public String getControllingIp() {
+		return controllingIp;
+	}
+
+	public void setControllingIp(String controllingIp) {
+		this.controllingIp = controllingIp;
 	}
 
 	public String getHostname() {

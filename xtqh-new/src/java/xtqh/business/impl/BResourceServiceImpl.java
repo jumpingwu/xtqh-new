@@ -28,7 +28,7 @@ public class BResourceServiceImpl implements BResourceService {
 	private ResourceDao resourceDao;
 
 	@Override
-	public Pagination<BResource> getResourceList(PaginationParameter parameter, Map<String, String> parMap)
+	public Pagination<BResource> getResourceList(Map<String, String> parMap, PaginationParameter parameter)
 			throws BusinessException {
 		// TODO Auto-generated method stub
 		Pagination<BResource> viewList = null;
@@ -41,17 +41,30 @@ public class BResourceServiceImpl implements BResourceService {
 				Map<String, String> filterFields = new HashMap<String, String>();
 				filterFields.put("name", searchKey);
 				filterFields.put("hostname", searchKey);
-				filterFields.put("controlling_ip", searchKey);
-				filterFields.put("resource_id", searchKey);
+				filterFields.put("controllingIp", searchKey);
+				filterFields.put("resourceId", searchKey);
 				/**
-				 * hiberante 查询数据
+				 * 查询数据
 				 */
-				listResource = persist.findListByFields(xtqh.dao.entity.Resource.class, filterFields, true);
+				listResource = persist.findListByFields(xtqh.dao.entity.Resource.class, filterFields,
+						parameter.getSidx(), parameter.getSord(), true);
+				// } else {
+				// listResource =
+				// persist.findListByFields(xtqh.dao.entity.Resource.class,
+				// filterFields, true);
+				// }
+
 			} else {
 				/**
-				 * hiberante 查询数据
+				 * 查询数据
 				 */
-				listResource = persist.findListByField(xtqh.dao.entity.Resource.class);
+				listResource = persist.findListByField(xtqh.dao.entity.Resource.class, parameter.getSidx(),
+						parameter.getSord());
+				// } else {
+				// listResource =
+				// persist.findListByField(xtqh.dao.entity.Resource.class);
+				// }
+
 			}
 
 			/**
@@ -94,6 +107,7 @@ public class BResourceServiceImpl implements BResourceService {
 
 	/**
 	 * 将Resource List转换成BResource List
+	 * 
 	 * @param listResource
 	 * @return
 	 */

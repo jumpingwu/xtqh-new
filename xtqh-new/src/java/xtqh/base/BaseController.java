@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import xtqh.base.orm.JpaOrder;
 import xtqh.base.paginate.PaginationParameter;
 
-public class BaseController {
+public abstract class BaseController {
 
 	protected HttpServletRequest request;
 
@@ -80,8 +81,32 @@ public class BaseController {
 		String pageStr = this.getParameterFromRequest("page");
 		String rowsStr = this.getParameterFromRequest("rows");
 
+		String sidx = this.getParameterFromRequest("sidx");
+		String sord = this.getParameterFromRequest("sord");
+
 		PaginationParameter parameter = this.getPagination(pageStr, rowsStr);
+		parameter.setSidx(sidx);
+		parameter.setSord(sord);
+
 		return parameter;
+	}
+
+	protected BaseOrder getJGridOrder() {
+
+		String sidx = this.getParameterFromRequest("sidx");
+		String sorder = this.getParameterFromRequest("sord");
+
+		BaseOrder order = null;
+		if (null != sidx) {
+			order = new JpaOrder();
+			order.setOrderColumn(sidx.trim());
+			if (sorder != null && "DESC".equalsIgnoreCase(sorder)) {
+				order.setAsc(false);
+			} else {
+				order.setAsc(true);
+			}
+		}
+		return order;
 	}
 
 	private PaginationParameter getPagination(String pageStr, String rowsStr) {

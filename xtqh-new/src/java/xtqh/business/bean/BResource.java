@@ -8,11 +8,11 @@ package xtqh.business.bean;
 
 public class BResource {
 
-	private String resource_id;
+	private String resourceId;
 
 	private String name;
 
-	private String resource_type;
+	private String resourceType;
 
 	private String hostname;
 
@@ -22,21 +22,13 @@ public class BResource {
 
 	// private List<Application> applicatoinList;
 
-	private String controlling_ip;
+	private String controllingIp;
 
-	private String resource_ip;
+	private String resourceIp;
 
 	private String location;
 
 	private String status;
-
-	public String getResource_id() {
-		return resource_id;
-	}
-
-	public void setResource_id(String resource_id) {
-		this.resource_id = resource_id;
-	}
 
 	public String getName() {
 		return name;
@@ -44,22 +36,6 @@ public class BResource {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getControlling_ip() {
-		return controlling_ip;
-	}
-
-	public void setControlling_ip(String controlling_ip) {
-		this.controlling_ip = controlling_ip;
-	}
-
-	public String getResource_ip() {
-		return resource_ip;
-	}
-
-	public void setResource_ip(String resource_ip) {
-		this.resource_ip = resource_ip;
 	}
 
 	public String getLocation() {
@@ -70,12 +46,36 @@ public class BResource {
 		this.location = location;
 	}
 
-	public String getResource_type() {
-		return resource_type;
+	public String getResourceId() {
+		return resourceId;
 	}
 
-	public void setResource_type(String resource_type) {
-		this.resource_type = resource_type;
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+	}
+
+	public String getResourceType() {
+		return resourceType;
+	}
+
+	public void setResourceType(String resourceType) {
+		this.resourceType = resourceType;
+	}
+
+	public String getControllingIp() {
+		return controllingIp;
+	}
+
+	public void setControllingIp(String controllingIp) {
+		this.controllingIp = controllingIp;
+	}
+
+	public String getResourceIp() {
+		return resourceIp;
+	}
+
+	public void setResourceIp(String resourceIp) {
+		this.resourceIp = resourceIp;
 	}
 
 	public String getHostname() {

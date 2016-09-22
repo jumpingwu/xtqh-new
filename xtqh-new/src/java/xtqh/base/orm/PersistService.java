@@ -93,6 +93,17 @@ public interface PersistService {
 	 * @return
 	 */
 	public <T> List<T> findListByField(Class<T> objClass);
+
+	/**
+	 * 根据某个字段查询获取多条记录
+	 * 
+	 * @param entityClass
+	 * @param field
+	 * @param value
+	 * @return
+	 */
+	public <T> List<T> findListByField(Class<T> objClass, String sidx, String sord);
+
 	/**
 	 * 根据某个字段查询获取多条记录
 	 * 
@@ -110,6 +121,15 @@ public interface PersistService {
 	 * @return
 	 */
 	public <T> List<T> findListByFields(Class<T> entityClass, Map<String, ?> params, boolean... isOr);
+
+	/**
+	 * @function:根据查询条件获取多条记录
+	 * @param entityClass
+	 * @param params
+	 * @return
+	 */
+	public <T> List<T> findListByFields(Class<T> entityClass, Map<String, ?> params, String sidx, String sord,
+			boolean... isOr);
 
 	/**
 	 * 根据某个字段获取值

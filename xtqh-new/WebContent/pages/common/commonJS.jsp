@@ -1,21 +1,27 @@
 <link rel="stylesheet" type="text/css"
 	href="${ctx }/css/jueryUI1.12/jquery-ui.css?var=2" />
+<!--  
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/css/jueryUI1.12/jquery-ui.min.css" />
+	href="${ctx }/css/jueryUI1.12/jquery-ui.min.css" />-->
 <link rel="stylesheet" type="text/css"
 	href="${ctx }/css/jueryUI1.12/jquery-ui.structure.css" />
+<!--  
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/css/jueryUI1.12/jquery-ui.structure.min.css" />
+	href="${ctx }/css/jueryUI1.12/jquery-ui.structure.min.css" />-->
 <link rel="stylesheet" type="text/css"
 	href="${ctx }/css/jueryUI1.12/jquery-ui.theme.css" />
+<!--  
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/css/jueryUI1.12/jquery-ui.theme.min.css" />
+	href="${ctx }/css/jueryUI1.12/jquery-ui.theme.min.css" />-->
 
-
+<!--
 <link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.login.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.min.css" />
+-->
+<link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }/css/H-ui.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }/css/style.css" />
 <!-- JQuery 1.12 -->
 <link rel="stylesheet" type="text/css" href="${ctx }/css/ui.jqgrid.css" />
@@ -33,8 +39,10 @@
 <script type="text/javascript" src="${ctx }/js/H-ui.js"></script>
 <!-- JGrid -->
 <script type="text/javascript" src="${ctx }/js/jqGrid/grid.locale-cn.js"></script>
-<script type="text/javascript" src="${ctx }/js/jqGrid/jquery.jqGrid.min.js"></script>
-<script type="text/javascript" src="${ctx }/js/jqGrid/jquery.jqGrid.src.js"></script>
+<script type="text/javascript"
+	src="${ctx }/js/jqGrid/jquery.jqGrid.min.js"></script>
+<script type="text/javascript"
+	src="${ctx }/js/jqGrid/jquery.jqGrid.src.js"></script>
 <!-- GoJs -->
 <script type="text/javascript" src="${ctx }/js/gojs/go.js"></script>
 <!-- Layer -->

@@ -12,6 +12,9 @@ public class PaginationParameter {
 	private int pageSize = 10;
 	private int page;
 
+	private String sidx;
+	private String sord;
+
 	public PaginationParameter() {
 		this.start = 0;
 	}
@@ -47,6 +50,22 @@ public class PaginationParameter {
 			this.page = 1;
 		}
 		this.page = page;
+	}
+
+	public String getSidx() {
+		return sidx;
+	}
+
+	public void setSidx(String sidx) {
+		this.sidx = sidx;
+	}
+
+	public String getSord() {
+		return sord;
+	}
+
+	public void setSord(String sord) {
+		this.sord = sord;
 	}
 
 }

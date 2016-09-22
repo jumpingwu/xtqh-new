@@ -209,6 +209,20 @@ public class JpaPersistence implements PersistService {
 	}
 
 	@SuppressWarnings("unchecked")
+	public <T> List<T> findListByFields(final Class<T> entityClass, final Map<String, ?> params, String sidx,
+			String sord, boolean... isOr) {
+		String queryString = produceQueryStringByNamedParams(entityClass, params, sidx, sord, isOr).toString();
+		Query query = entityManager.createQuery(queryString);
+		if (params != null && !params.isEmpty()) {
+			for (Map.Entry<String, ?> entry : params.entrySet()) {
+				query.setParameter(entry.getKey(), entry.getValue());
+			}
+		}
+		return query.getResultList();
+
+	}
+
+	@SuppressWarnings("unchecked")
 	public <T> T findObjectByField(final Class<T> entityClass, final String field, final Object value) {
 		String queryString = produceQueryString(entityClass, field).toString();
 		Query query = entityManager.createQuery(queryString, entityClass);
@@ -288,6 +302,7 @@ public class JpaPersistence implements PersistService {
 				query = query.replaceAll(" and ", " or ");
 			}
 		}
+
 		return query;
 
 	}
@@ -419,9 +434,16 @@ public class JpaPersistence implements PersistService {
 	@Override
 	public <T> List<T> findListByField(Class<T> entityClass) {
 		// TODO Auto-generated method stub
-		StringBuilder queryBuilder = new StringBuilder();
-		queryBuilder.append("from ").append(entityClass.getName());
-		Query query = entityManager.createQuery(queryBuilder.toString());
+		String queryString = produceQueryStringByNamedParams(entityClass, null, false).toString();
+		Query query = entityManager.createQuery(queryString);
+		return query.getResultList();
+	}
+
+	@Override
+	public <T> List<T> findListByField(Class<T> entityClass, String sidx, String sord) {
+		// TODO Auto-generated method stub
+		String queryString = produceQueryStringByNamedParams(entityClass, null, sidx, sord, false).toString();
+		Query query = entityManager.createQuery(queryString);
 		return query.getResultList();
 	}
 
