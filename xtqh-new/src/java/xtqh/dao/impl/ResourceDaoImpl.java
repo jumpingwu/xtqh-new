@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import xtqh.base.BaseJdbcDao;
 import xtqh.dao.ResourceDao;
 import xtqh.dao.entity.Resource;
+import xtqh.framework.base.BaseJdbcDao;
 
 @Repository("ResourceDao")
 public class ResourceDaoImpl extends BaseJdbcDao implements ResourceDao {
@@ -19,8 +19,8 @@ public class ResourceDaoImpl extends BaseJdbcDao implements ResourceDao {
 		@Override
 		public Resource mapRow(ResultSet rs, int rownum) throws SQLException {
 			Resource resource = new Resource();
-			resource.setResource_id(rs.getString("id"));
-			resource.setControlling_ip(rs.getString("controlling_ip"));
+			resource.setResourceId(rs.getString("id"));
+			resource.setControllingIp(rs.getString("controlling_ip"));
 			resource.setHostname(rs.getString("hostname"));
 			resource.setName(rs.getString("name"));
 			resource.setResourceType(rs.getString("resource_type"));
@@ -33,7 +33,7 @@ public class ResourceDaoImpl extends BaseJdbcDao implements ResourceDao {
 		// TODO Auto-generated method stub
 		String sql = "select distinct id, controlling_ip, name, resource_type,hostname from resource";
 		List<Resource> resourceList = jdbcTemplate.query(sql, resourceRowMapper);
-		
+
 		return resourceList;
 	}
 

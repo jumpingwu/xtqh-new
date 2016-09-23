@@ -2,10 +2,10 @@ package xtqh.business;
 
 import java.util.Map;
 
-import xtqh.base.paginate.Pagination;
-import xtqh.base.paginate.PaginationParameter;
 import xtqh.business.bean.BResource;
 import xtqh.business.exception.BusinessException;
+import xtqh.framework.base.paginate.Pagination;
+import xtqh.framework.base.paginate.PaginationParameter;
 
 public interface BResourceService {
 

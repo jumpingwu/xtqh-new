@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import xtqh.base.BaseController;
-import xtqh.base.paginate.Pagination;
 import xtqh.business.BResourceService;
 import xtqh.business.bean.BResource;
 import xtqh.business.exception.BusinessException;
+import xtqh.framework.base.BaseController;
+import xtqh.framework.base.paginate.Pagination;
 
 @Controller
 @RequestMapping("/resourceController")
@@ -26,6 +26,7 @@ public class ResourceController extends BaseController {
 	@RequestMapping(value = "/index")
 	public ModelAndView fetchResourceList(Model model, ModelAndView modelAndView) {
 
+		
 		modelAndView.setViewName("forward:/pages/resource/resourceList.jsp");
 
 		return modelAndView;
@@ -47,14 +48,19 @@ public class ResourceController extends BaseController {
 			 */
 			resourceList = bResourceService.getResourceList(parMap, this.getPaginationParameter());
 
+//			String a = null;
+//			a.length();
+
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			this.handleException(e);
+//			return null;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			this.handleException(e);
+			return null;
 		}
 		return resourceList;
 	}
@@ -62,6 +68,7 @@ public class ResourceController extends BaseController {
 	@RequestMapping(value = "/resourceDetail")
 	public ModelAndView resourceDetail(Model model, ModelAndView modelAndView) {
 
+		
 		modelAndView.setViewName("forward:/pages/resource/resourceDetail.jsp");
 
 		return modelAndView;

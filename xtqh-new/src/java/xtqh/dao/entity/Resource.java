@@ -15,9 +15,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import xtqh.base.BaseEntity;
 import xtqh.dao.entity.mapping.M_Resource_Property;
 import xtqh.dao.entity.mapping.M_Resource_ResourceConnectionStatus;
+import xtqh.framework.base.BaseEntity;
 
 /**
  * 

@@ -114,6 +114,9 @@ function loadResourceList() {
 										display = display
 												+ '<a href="javascript:viewResourceDetail('
 												+ val + ')" >查看</a> ';
+										display = display
+												+ '<a href="javascript:deleteResource('
+												+ val + ')" >删除</a> ';
 
 										return display;
 									}
@@ -168,6 +171,21 @@ function viewResourceDetail(resourceId) {
 	alert("view resource detail!");
 }
 
+/**
+ * resource 刪除
+ * 
+ * @param resourceId
+ * @returns
+ */
+function deleteResource(resourceId) {
+	alert("detele resource!");
+}
+
+/**
+ * resource详情
+ * 
+ * @returns
+ */
 function searchResourceList() {
 	$("#resourceList").jqGrid('setGridParam', {
 		datatype : 'json',

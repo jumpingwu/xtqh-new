@@ -150,8 +150,8 @@ public class JpaPersistence implements PersistService {
 
 	@SuppressWarnings("unchecked")
 	public <T> List<T> findListByFields(final Class<T> objClass, final Map<String, ?> params, final int start,
-			final int maxRows) {
-		String queryString = produceQueryStringByNamedParams(objClass, params);
+			final int maxRows, boolean... isOr) {
+		String queryString = produceQueryStringByNamedParams(objClass, params, isOr);
 		Query query = entityManager.createQuery(queryString);
 		if (params != null) {
 			for (Map.Entry<String, ?> entry : params.entrySet()) {
@@ -170,8 +170,8 @@ public class JpaPersistence implements PersistService {
 
 	@SuppressWarnings("unchecked")
 	public <T> List<T> findListOrderbyByFields(final Class<T> objClass, final Map<String, ?> params, final int start,
-			final int maxRows, String sidx, String sord) {
-		String queryString = produceQueryStringByNamedParams(objClass, params, sidx, sord);
+			final int maxRows, String sidx, String sord, boolean isOr) {
+		String queryString = produceQueryStringByNamedParams(objClass, params, sidx, sord, isOr);
 		Query query = entityManager.createQuery(queryString);
 		if (params != null) {
 			for (Map.Entry<String, ?> entry : params.entrySet()) {
@@ -196,8 +196,22 @@ public class JpaPersistence implements PersistService {
 	 * .lang.Class, java.util.Map)
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> List<T> findListByFields(final Class<T> entityClass, final Map<String, ?> params) {
-		String queryString = produceQueryStringByNamedParams(entityClass, params).toString();
+	public <T> List<T> findListByFields(final Class<T> entityClass, final Map<String, ?> params, boolean... isOr) {
+		String queryString = produceQueryStringByNamedParams(entityClass, params, isOr).toString();
+		Query query = entityManager.createQuery(queryString);
+		if (params != null && !params.isEmpty()) {
+			for (Map.Entry<String, ?> entry : params.entrySet()) {
+				query.setParameter(entry.getKey(), entry.getValue());
+			}
+		}
+		return query.getResultList();
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> List<T> findListByFields(final Class<T> entityClass, final Map<String, ?> params, String sidx,
+			String sord, boolean... isOr) {
+		String queryString = produceQueryStringByNamedParams(entityClass, params, sidx, sord, isOr).toString();
 		Query query = entityManager.createQuery(queryString);
 		if (params != null && !params.isEmpty()) {
 			for (Map.Entry<String, ?> entry : params.entrySet()) {
@@ -265,7 +279,8 @@ public class JpaPersistence implements PersistService {
 	 * @param params
 	 * @return
 	 */
-	private String produceQueryStringByNamedParams(final Class<?> entityClass, final Map<String, ?> params) {
+	private String produceQueryStringByNamedParams(final Class<?> entityClass, final Map<String, ?> params,
+			boolean... isOr) {
 		StringBuilder queryBuilder = new StringBuilder();
 		queryBuilder.append("from ").append(entityClass.getName());
 
@@ -280,7 +295,15 @@ public class JpaPersistence implements PersistService {
 			}
 		}
 
-		return queryBuilder.toString();
+		String query = queryBuilder.toString();
+
+		if (isOr != null && isOr.length != 0) {
+			if (isOr[0]) {
+				query = query.replaceAll(" and ", " or ");
+			}
+		}
+
+		return query;
 
 	}
 
@@ -292,7 +315,7 @@ public class JpaPersistence implements PersistService {
 	 * @return
 	 */
 	private String produceQueryStringByNamedParams(final Class<?> entityClass, final Map<String, ?> params, String sidx,
-			String sord) {
+			String sord, boolean... isOr) {
 		StringBuilder queryBuilder = new StringBuilder();
 		queryBuilder.append("from ").append(entityClass.getName());
 
@@ -310,7 +333,14 @@ public class JpaPersistence implements PersistService {
 			queryBuilder.append(" order by " + sidx + " " + sord);
 		}
 
-		return queryBuilder.toString();
+		String query = queryBuilder.toString();
+
+		if (isOr != null && isOr.length != 0) {
+			if (isOr[0]) {
+				query = query.replaceAll(" and ", " or ");
+			}
+		}
+		return query;
 
 	}
 
@@ -399,6 +429,22 @@ public class JpaPersistence implements PersistService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public <T> List<T> findListByField(Class<T> entityClass) {
+		// TODO Auto-generated method stub
+		String queryString = produceQueryStringByNamedParams(entityClass, null, false).toString();
+		Query query = entityManager.createQuery(queryString);
+		return query.getResultList();
+	}
+
+	@Override
+	public <T> List<T> findListByField(Class<T> entityClass, String sidx, String sord) {
+		// TODO Auto-generated method stub
+		String queryString = produceQueryStringByNamedParams(entityClass, null, sidx, sord, false).toString();
+		Query query = entityManager.createQuery(queryString);
+		return query.getResultList();
 	}
 
 }

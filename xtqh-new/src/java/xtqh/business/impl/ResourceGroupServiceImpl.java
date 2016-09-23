@@ -6,10 +6,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import xtqh.base.orm.PersistService;
 import xtqh.business.ResourceGroupService;
 import xtqh.business.bean.BResourceGroup;
 import xtqh.dao.entity.ResourceGroup;
+import xtqh.framework.base.orm.PersistService;
 import xtqh.util.HibernateTools;
 
 @Service("BResourceGroupService")

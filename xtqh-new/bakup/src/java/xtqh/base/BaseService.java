@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 
  *
  */
-public class BaseService {
+public abstract class BaseService {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -30,32 +30,31 @@ public class BaseService {
 
 	public void saveList(List objList) {
 		Session session = sessionFactory.getCurrentSession();
-		for (Object obj: objList) {
+		for (Object obj : objList) {
 			session.save(obj);
 		}
 	}
 
-	public <T> List<T> getAll(Class<T> entityType){
+	public <T> List<T> getAll(Class<T> entityType) {
 		Session session = this.getSessionFactory().getCurrentSession();
 		Criteria criteria = session.createCriteria(entityType);
 		return (List<T>) criteria.list();
 	}
 
-	
 	public <T> T get(Class<T> entityType, String uid) {
 		return (T) sessionFactory.getCurrentSession().get(entityType, uid);
-	
+
 	}
-	
+
 	public void delete(Object obj) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(obj);
 	}
-	
+
 	public void beginTransaction() {
 		sessionFactory.getCurrentSession().beginTransaction();
 	}
-	
+
 	public void commitTransaction() {
 		sessionFactory.getCurrentSession().getTransaction().commit();
 	}

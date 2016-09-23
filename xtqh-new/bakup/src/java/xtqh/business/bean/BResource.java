@@ -8,35 +8,27 @@ package xtqh.business.bean;
 
 public class BResource {
 
-	private String resource_id;
+	private String resourceId;
 
 	private String name;
-	
-	private String resource_type;
-	
+
+	private String resourceType;
+
 	private String hostname;
-	
+
 	private String applicationNames;
-	
+
 	private String applicationIDs;
-	
-//	private List<Application> applicatoinList;
 
-	private String controlling_ip;
+	// private List<Application> applicatoinList;
 
-	private String resource_ip;
+	private String controllingIp;
+
+	private String resourceIp;
 
 	private String location;
-	
-//	private String 
 
-	public String getResource_id() {
-		return resource_id;
-	}
-
-	public void setResource_id(String resource_id) {
-		this.resource_id = resource_id;
-	}
+	private String status;
 
 	public String getName() {
 		return name;
@@ -46,28 +38,76 @@ public class BResource {
 		this.name = name;
 	}
 
-	public String getControlling_ip() {
-		return controlling_ip;
-	}
-
-	public void setControlling_ip(String controlling_ip) {
-		this.controlling_ip = controlling_ip;
-	}
-
-	public String getResource_ip() {
-		return resource_ip;
-	}
-
-	public void setResource_ip(String resource_ip) {
-		this.resource_ip = resource_ip;
-	}
-
 	public String getLocation() {
 		return location;
 	}
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public String getResourceId() {
+		return resourceId;
+	}
+
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+	}
+
+	public String getResourceType() {
+		return resourceType;
+	}
+
+	public void setResourceType(String resourceType) {
+		this.resourceType = resourceType;
+	}
+
+	public String getControllingIp() {
+		return controllingIp;
+	}
+
+	public void setControllingIp(String controllingIp) {
+		this.controllingIp = controllingIp;
+	}
+
+	public String getResourceIp() {
+		return resourceIp;
+	}
+
+	public void setResourceIp(String resourceIp) {
+		this.resourceIp = resourceIp;
+	}
+
+	public String getHostname() {
+		return hostname;
+	}
+
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
+	}
+
+	public String getApplicationNames() {
+		return applicationNames;
+	}
+
+	public void setApplicationNames(String applicationNames) {
+		this.applicationNames = applicationNames;
+	}
+
+	public String getApplicationIDs() {
+		return applicationIDs;
+	}
+
+	public void setApplicationIDs(String applicationIDs) {
+		this.applicationIDs = applicationIDs;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

@@ -11,7 +11,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import xtqh.base.BaseEntity;
+import xtqh.framework.base.BaseEntity;
+
 /**
  * 
 
@@ -33,7 +34,7 @@ public class Property extends BaseEntity {
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	@Column(name = "ID", columnDefinition = "CHAR(36)")
-	private String property_id;
+	private String propertyId;
 
 	@Transient
 	private List<StandardProperty> scriptArguments;
@@ -57,12 +58,13 @@ public class Property extends BaseEntity {
 		this.value = value;
 	}
 
-	public String getProperty_id() {
-		return property_id;
+	public String getPropertyId() {
+		return propertyId;
 	}
 
-	public void setProperty_id(String property_id) {
-		this.property_id = property_id;
+	public void setPropertyId(String propertyId) {
+		this.propertyId = propertyId;
 	}
+
 
 }

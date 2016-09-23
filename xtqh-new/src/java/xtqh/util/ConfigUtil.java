@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
  *
  */
 public class ConfigUtil {
+
+	private String mysql_xtqh_username;
 	/**
 	 * for config property file
 	 */

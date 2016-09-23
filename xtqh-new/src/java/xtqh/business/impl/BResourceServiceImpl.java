@@ -6,16 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
-import xtqh.base.orm.PersistService;
-import xtqh.base.paginate.Pagination;
-import xtqh.base.paginate.PaginationParameter;
 import xtqh.business.BResourceService;
 import xtqh.business.bean.BResource;
 import xtqh.business.exception.BusinessException;
 import xtqh.dao.ResourceDao;
+import xtqh.framework.base.orm.PersistService;
+import xtqh.framework.base.paginate.Pagination;
+import xtqh.framework.base.paginate.PaginationParameter;
+import xtqh.framework.cache.PortalManager;
 import xtqh.util.BeanUtil;
 
 @Service("BResourceService")
@@ -27,6 +29,9 @@ public class BResourceServiceImpl implements BResourceService {
 	@Resource(name = "ResourceDao")
 	private ResourceDao resourceDao;
 
+	@Resource(name = "PortalManager")
+	private PortalManager portalManager;
+
 	@Override
 	public Pagination<BResource> getResourceList(Map<String, String> parMap, PaginationParameter parameter)
 			throws BusinessException {
@@ -34,6 +39,9 @@ public class BResourceServiceImpl implements BResourceService {
 		Pagination<BResource> viewList = null;
 		List<BResource> bResourceList = null;
 		String searchKey = parMap.get("searchKey");
+
+		HttpServletRequest request = portalManager.getRequest();
+		String searchKey2 = request.getParameter("searchKey");
 
 		try {
 			List<xtqh.dao.entity.Resource> listResource = null;

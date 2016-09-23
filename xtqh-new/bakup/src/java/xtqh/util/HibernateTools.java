@@ -1,6 +1,7 @@
 package xtqh.util;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -62,4 +63,8 @@ public class HibernateTools {
 		sessionFactory.getCurrentSession().getTransaction().commit();
 	}
 
+	public String getHql(Map<String, String> fields) {
+
+		return null;
+	}
 }
