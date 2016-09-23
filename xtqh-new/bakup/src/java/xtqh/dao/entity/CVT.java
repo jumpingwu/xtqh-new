@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import xtqh.base.BaseEntity;
+import xtqh.framework.base.BaseEntity;
+
 
 /**
  * 

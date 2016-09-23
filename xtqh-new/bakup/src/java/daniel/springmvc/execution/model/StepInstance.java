@@ -24,7 +24,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import daniel.springmvc.execution.model.enump.OperationExecutionOrderEnum;
 import daniel.springmvc.execution.model.enump.StepInstanceStatusEnum;
-import xtqh.base.BaseEntity;
+import xtqh.framework.base.BaseEntity;
 
 /**
  * @author Daniel

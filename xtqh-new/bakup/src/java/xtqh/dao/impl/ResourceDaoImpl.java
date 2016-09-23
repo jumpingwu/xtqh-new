@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import xtqh.base.BaseJdbcDao;
 import xtqh.dao.ResourceDao;
 import xtqh.dao.entity.Resource;
+import xtqh.framework.base.BaseJdbcDao;
 
 @Repository("ResourceDao")
 public class ResourceDaoImpl extends BaseJdbcDao implements ResourceDao {

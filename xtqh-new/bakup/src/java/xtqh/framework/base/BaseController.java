@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import xtqh.base.orm.JpaOrder;
-import xtqh.base.paginate.PaginationParameter;
+import xtqh.framework.base.paginate.PaginationParameter;
+
 
 public abstract class BaseController {
 

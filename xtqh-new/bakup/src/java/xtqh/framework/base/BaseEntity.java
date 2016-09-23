@@ -3,12 +3,16 @@ package xtqh.framework.base;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
+import xtqh.framework.base.audit.PersistenceAuditListener;
+
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@EntityListeners(PersistenceAuditListener.class)
 public abstract class BaseEntity {
 
 	// @Id
@@ -17,49 +21,17 @@ public abstract class BaseEntity {
 	// @Column(name = "ID", columnDefinition = "CHAR(36)")
 	// private String id = null;
 
-	@Column(name = "LAST_MODIFICATION_DATE")
-	private Date lastModificationDate;
-
-	@Column(name = "LAST_MODIFIER")
-	private String lastModifier;
-
-	@Column(name = "CREATION_DATE")
-	private Date creationDate;
-
-	@Column(name = "CREATOR")
+	@Column(name = "CREATOR", length = 50, insertable = true, updatable = false)
 	private String creator;
 
-	// public String getId() {
-	// return id;
-	// }
-	//
-	// public void setId(String id) {
-	// this.id = id;
-	// }
+	@Column(name = "CREATE_TIME", insertable = true, updatable = false)
+	private Date createTime;
 
-	public Date getLastModificationDate() {
-		return lastModificationDate;
-	}
+	@Column(name = "UPDATOR", length = 50, insertable = false, updatable = true)
+	private String updator;
 
-	public void setLastModificationDate(Date lastModificationDate) {
-		this.lastModificationDate = lastModificationDate;
-	}
-
-	public String getLastModifier() {
-		return lastModifier;
-	}
-
-	public void setLastModifier(String lastModifier) {
-		this.lastModifier = lastModifier;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
+	@Column(name = "UPDATE_TIME", insertable = false, updatable = true)
+	private Date updateTime;
 
 	public String getCreator() {
 		return creator;
@@ -68,6 +40,38 @@ public abstract class BaseEntity {
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getUpdator() {
+		return updator;
+	}
+
+	public void setUpdator(String updator) {
+		this.updator = updator;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	// public String getId() {
+	// return id;
+	// }
+	//
+	// public void setId(String id) {
+	// this.id = id;
+	// }
 
 	// @Override
 	// public int hashCode() {

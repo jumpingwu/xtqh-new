@@ -1,6 +1,6 @@
 package xtqh.business.exception;
 
-import xtqh.base.exception.BaseException;
+import xtqh.framework.base.exception.BaseException;
 
 public class BusinessException extends BaseException {
 

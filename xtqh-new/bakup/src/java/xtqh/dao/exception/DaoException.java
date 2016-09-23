@@ -1,6 +1,6 @@
 package xtqh.dao.exception;
 
-import xtqh.base.exception.BaseException;
+import xtqh.framework.base.exception.BaseException;
 
 public class DaoException extends BaseException {
 

@@ -11,9 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import xtqh.base.BaseEntity;
 import xtqh.dao.entity.Resource;
 import xtqh.dao.entity.ResourceConnectionStatus;
+import xtqh.framework.base.BaseEntity;
 
 /**
  * 

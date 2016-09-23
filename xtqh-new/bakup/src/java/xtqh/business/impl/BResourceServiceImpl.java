@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
-import xtqh.base.orm.PersistService;
-import xtqh.base.paginate.Pagination;
-import xtqh.base.paginate.PaginationParameter;
 import xtqh.business.BResourceService;
 import xtqh.business.bean.BResource;
 import xtqh.business.exception.BusinessException;
 import xtqh.dao.ResourceDao;
+import xtqh.framework.base.orm.PersistService;
+import xtqh.framework.base.paginate.Pagination;
+import xtqh.framework.base.paginate.PaginationParameter;
 import xtqh.framework.cache.PortalManager;
 import xtqh.util.BeanUtil;
 

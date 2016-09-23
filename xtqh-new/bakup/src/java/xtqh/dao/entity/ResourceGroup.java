@@ -8,7 +8,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import xtqh.base.BaseEntity;
+import xtqh.framework.base.BaseEntity;
+
 
 /**
  * 

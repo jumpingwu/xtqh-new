@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import daniel.springmvc.execution.model.enump.OperationInstanceStatusEnum;
-import xtqh.base.BaseEntity;
+import xtqh.framework.base.BaseEntity;
 
 /**
  * @author Daniel 实例步骤中的操作
