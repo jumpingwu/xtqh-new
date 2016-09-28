@@ -76,17 +76,28 @@ public class ResourceController extends BaseController {
 			exception.printStackTrace();
 			this.handleException(exception);
 		}
-		String[] resourceIdArray = resourceId.split(",");
-		Integer[] cdRuleIdAry = new Integer[resourceIdArray.length];
-		for (int i = 0; i < resourceIdArray.length; i++) {
-			cdRuleIdAry[i] = Integer.valueOf(resourceIdArray[i]);
-		}
+		String[] resourceIdStrArray = resourceId.split(",");
 
 		/**
 		 * service 层删除
 		 */
-		
-		return "success";
+		boolean result = false;
+		try {
+			if (null != resourceIdStrArray && 0 != resourceIdStrArray.length) {
+				result = bResourceService.deleteResource(resourceIdStrArray[0]);
+			}
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			this.handleException(e);
+		}
+
+		if (result) {
+			return "success";
+		} else {
+
+			return "success";
+		}
 	}
 
 	@RequestMapping(value = "/resourceDetail")

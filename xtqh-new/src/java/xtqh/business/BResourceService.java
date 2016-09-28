@@ -13,4 +13,8 @@ public interface BResourceService {
 			throws BusinessException;
 
 	public Pagination<BResource> getResourceList(PaginationParameter parameter) throws BusinessException;
+
+	public boolean deleteResource(String resourceId) throws BusinessException;
+
+	public boolean deleteResourceList(String[] resourceIdAry) throws BusinessException;
 }

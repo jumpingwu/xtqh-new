@@ -137,4 +137,37 @@ public class BResourceServiceImpl implements BResourceService {
 		}
 		return bResourceList;
 	}
+
+	@Override
+	public boolean deleteResource(String resourceId) throws BusinessException {
+		// TODO Auto-generated method stub
+		xtqh.dao.entity.Resource resource = this.persist.find(xtqh.dao.entity.Resource.class, resourceId);
+		if (null != resource) {
+			try {
+				persist.remove(resource);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw new BusinessException(e);
+			}
+
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean deleteResourceList(String[] resourceIdAry) throws BusinessException {
+		// TODO Auto-generated method stub
+
+		/**
+		 * 批量删除
+		 */
+		for (String resourceId : resourceIdAry) {
+
+		}
+		return false;
+	}
+
 }

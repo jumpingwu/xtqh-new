@@ -178,9 +178,7 @@ function viewResourceDetail(resourceId) {
  * @returns
  */
 function deleteResource(selectedData) {
-	alert("detele resource!");
-
-	alert(selectedData);
+	//alert("detele resource!");
 
 	if (!selectedData) {
 		selectedData = '';

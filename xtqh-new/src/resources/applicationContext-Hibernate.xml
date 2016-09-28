@@ -80,7 +80,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	<aop:config>
-		<aop:pointcut id="txMonitorManagementMethods" expression="execution(* xtqh.business..*(..))" />
+		<aop:pointcut id="txMonitorManagementMethods" expression="execution(* xtqh.business.impl..*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txMonitorManagementMethods" />
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="txManager">
