@@ -3,6 +3,7 @@ package xtqh.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +27,6 @@ public class ResourceController extends BaseController {
 	@RequestMapping(value = "/index")
 	public ModelAndView fetchResourceList(Model model, ModelAndView modelAndView) {
 
-		
 		modelAndView.setViewName("forward:/pages/resource/resourceList.jsp");
 
 		return modelAndView;
@@ -48,14 +48,14 @@ public class ResourceController extends BaseController {
 			 */
 			resourceList = bResourceService.getResourceList(parMap, this.getPaginationParameter());
 
-//			String a = null;
-//			a.length();
+			// String a = null;
+			// a.length();
 
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			this.handleException(e);
-//			return null;
+			// return null;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,10 +65,33 @@ public class ResourceController extends BaseController {
 		return resourceList;
 	}
 
+	@RequestMapping("/delete")
+	@ResponseBody
+	public String deleteResource(String resourceId) {
+		if (StringUtils.isEmpty(resourceId)) {
+			/**
+			 * 封装异常，处理
+			 */
+			BusinessException exception = new BusinessException("未指定资源，无法删除!");
+			exception.printStackTrace();
+			this.handleException(exception);
+		}
+		String[] resourceIdArray = resourceId.split(",");
+		Integer[] cdRuleIdAry = new Integer[resourceIdArray.length];
+		for (int i = 0; i < resourceIdArray.length; i++) {
+			cdRuleIdAry[i] = Integer.valueOf(resourceIdArray[i]);
+		}
+
+		/**
+		 * service 层删除
+		 */
+		
+		return "success";
+	}
+
 	@RequestMapping(value = "/resourceDetail")
 	public ModelAndView resourceDetail(Model model, ModelAndView modelAndView) {
 
-		
 		modelAndView.setViewName("forward:/pages/resource/resourceDetail.jsp");
 
 		return modelAndView;

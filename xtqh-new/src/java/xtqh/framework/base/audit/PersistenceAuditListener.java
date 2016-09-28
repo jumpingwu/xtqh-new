@@ -36,15 +36,7 @@ public class PersistenceAuditListener {
 		if (user != null)
 			auditEntity.setUpdator(user.getUserId());
 		else {
-			/**
-			 * 这为了维护期同步时，CREATOR 为CAMA
-			 */
-			if (auditEntity.getUpdator() != null && "CAMA".equals(auditEntity.getUpdator())) {
-
-			} else {
-				// 无法获取用户信息
-				auditEntity.setUpdator("");
-			}
+			auditEntity.setUpdator("System");
 		}
 		// 更新时间为最新事件
 		auditEntity.setUpdateTime(new Date());
@@ -66,15 +58,7 @@ public class PersistenceAuditListener {
 			if (user != null)
 				auditEntity.setCreator(user.getUserId());
 			else {
-				/**
-				 * 这为了维护期同步时，CREATOR 为CAMA
-				 */
-				if (auditEntity.getCreator() != null && "CAMA".equals(auditEntity.getCreator())) {
-
-				} else {
-					// 无法获取用户
-					auditEntity.setCreator("itmonitor");
-				}
+				auditEntity.setCreator("System");
 			}
 
 			auditEntity.setCreateTime(new Date());

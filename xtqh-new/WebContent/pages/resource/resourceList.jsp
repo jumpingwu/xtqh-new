@@ -14,7 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Xenon Boostrap Admin Panel" />
 <meta name="author" content="" />
-<script type="text/javascript" src="${ctx}/pages/resource/resourceList.js?var=9"></script>
+<script type="text/javascript"
+	src="${ctx}/pages/resource/resourceList.js?var=9"></script>
 
 <title>资源管理</title>
 </head>
@@ -49,10 +50,15 @@
 						<option value="">请选择</option>
 					</select>
 				</div>
+				<div class="input-type col-5-1 l">
+					<input type="button" class="btn commit" value="提交"
+						onclick="commitTransaction();">
+				</div>
 				<div class="input-type col-xs-3 r">
 					<input type="text" class="input-text l" id="searchKey"
-						name="searchKey" placeholder="通过资源名称、hostname、控制IP、序列号、等关键字来模糊搜索已有的资源">
-					<input type="button" class="btn search" value="搜索"
+						name="searchKey"
+						placeholder="通过资源名称、hostname、控制IP、序列号、等关键字来模糊搜索已有的资源"> <input
+						type="button" class="btn search" value="搜索"
 						onclick="searchResourceList();">
 				</div>
 			</div>

@@ -179,6 +179,42 @@ function viewResourceDetail(resourceId) {
  */
 function deleteResource(resourceId) {
 	alert("detele resource!");
+
+	if (!selectedData) {
+		selectedData = '';
+		var selectedRule = $('input[name=changeWindowCheck]:checked',
+				"#resourceList");
+		if (selectedRule && selectedRule.length > 0) {
+			for (var i = 0; i < selectedRule.length; i++) {
+				selectedData += ($(selectedRule[i]).val() + ',');
+			}
+		}
+	}
+	if (selectedData) {
+		// 提交删除请求
+		$.ajax({
+			url : commonContext + "/management/changewindow/delete",
+			data : {
+				"cdRules" : selectedData
+
+			},
+			success : function(data) {
+				if (data && data == 'success') {
+					Msg.info('成功', '成功删除选中的维护期');
+					// 刷新列表
+					search();
+				} else {
+					Msg.error('错误', '删除失败!' + data);
+				}
+			},
+			error : function(e, xhr) {
+				Msg.error('错误', '删除失败!');
+			}
+		});
+
+	} else {
+		Msg.alert('警告', '未选择任何服务器');
+	}
 }
 
 /**
@@ -187,6 +223,21 @@ function deleteResource(resourceId) {
  * @returns
  */
 function searchResourceList() {
+	$("#resourceList").jqGrid('setGridParam', {
+		datatype : 'json',
+		postData : getPostData(),
+		page : 1
+	}).trigger("reloadGrid"); // 重新载入
+}
+
+/**
+ * 
+ * @returns
+ */
+function commitTransaction() {
+
+	alert("1, commit transaction，");
+
 	$("#resourceList").jqGrid('setGridParam', {
 		datatype : 'json',
 		postData : getPostData(),
