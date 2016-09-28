@@ -143,14 +143,7 @@ public class BResourceServiceImpl implements BResourceService {
 		// TODO Auto-generated method stub
 		xtqh.dao.entity.Resource resource = this.persist.find(xtqh.dao.entity.Resource.class, resourceId);
 		if (null != resource) {
-			try {
-				persist.remove(resource);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				throw new BusinessException(e);
-			}
-
+			persist.remove(resource);
 			return true;
 		}
 
