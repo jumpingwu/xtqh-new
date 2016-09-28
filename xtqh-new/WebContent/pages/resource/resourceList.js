@@ -54,7 +54,7 @@ function loadResourceList() {
 									name : 'location',
 									index : 'location',
 									align : "left",
-									sortable : true,
+									sortable : false,
 									sortname : 'location',
 									width : 150
 								},
@@ -177,12 +177,14 @@ function viewResourceDetail(resourceId) {
  * @param resourceId
  * @returns
  */
-function deleteResource(resourceId) {
+function deleteResource(selectedData) {
 	alert("detele resource!");
+
+	alert(selectedData);
 
 	if (!selectedData) {
 		selectedData = '';
-		var selectedRule = $('input[name=changeWindowCheck]:checked',
+		var selectedRule = $('input[name=resourceCheck]:checked',
 				"#resourceList");
 		if (selectedRule && selectedRule.length > 0) {
 			for (var i = 0; i < selectedRule.length; i++) {
@@ -193,9 +195,9 @@ function deleteResource(resourceId) {
 	if (selectedData) {
 		// 提交删除请求
 		$.ajax({
-			url : commonContext + "/management/changewindow/delete",
+			url : commonContext + "resourceController/delete",
 			data : {
-				"cdRules" : selectedData
+				"resourceId" : selectedData
 
 			},
 			success : function(data) {

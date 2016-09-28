@@ -15,7 +15,7 @@
 <meta name="description" content="Xenon Boostrap Admin Panel" />
 <meta name="author" content="" />
 <script type="text/javascript"
-	src="${ctx}/pages/resource/resourceList.js?var=9"></script>
+	src="${ctx}/pages/resource/resourceList.js?var=13"></script>
 
 <title>资源管理</title>
 </head>
