@@ -7,7 +7,7 @@ import daniel.springmvc.execution.model.OperationInstance;
 import daniel.springmvc.execution.model.StepInstance;
 import daniel.springmvc.execution.service.OperationInstanceService;
 import daniel.springmvc.execution.service.StepInstanceService;
-import xtqh.util.HibernateTools;
+import xtqh.framework.util.HibernateTools;
 
 @Service("StepInstanceService")
 public class StepInstanceServiceImpl extends HibernateTools implements StepInstanceService {

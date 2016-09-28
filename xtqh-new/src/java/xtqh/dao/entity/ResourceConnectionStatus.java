@@ -50,4 +50,45 @@ public class ResourceConnectionStatus extends BaseEntity {
 	@Column(name = "lastReachableTime", columnDefinition = "TIMESTAMP")
 	private Date lastReachableTime;
 
+	public String getResourceConnectionStatus_id() {
+		return resourceConnectionStatus_id;
+	}
+
+	public void setResourceConnectionStatus_id(String resourceConnectionStatus_id) {
+		this.resourceConnectionStatus_id = resourceConnectionStatus_id;
+	}
+
+	public String getAnsibleServer() {
+		return ansibleServer;
+	}
+
+	public void setAnsibleServer(String ansibleServer) {
+		this.ansibleServer = ansibleServer;
+	}
+
+	public boolean isReachable() {
+		return isReachable;
+	}
+
+	public void setReachable(boolean isReachable) {
+		this.isReachable = isReachable;
+	}
+
+	public Date getLastConnectionTestTime() {
+		return lastConnectionTestTime;
+	}
+
+	public void setLastConnectionTestTime(Date lastConnectionTestTime) {
+		this.lastConnectionTestTime = lastConnectionTestTime;
+	}
+
+	public Date getLastReachableTime() {
+		return lastReachableTime;
+	}
+
+	public void setLastReachableTime(Date lastReachableTime) {
+		this.lastReachableTime = lastReachableTime;
+	}
+
+	
 }

@@ -18,7 +18,7 @@ import xtqh.framework.base.orm.PersistService;
 import xtqh.framework.base.paginate.Pagination;
 import xtqh.framework.base.paginate.PaginationParameter;
 import xtqh.framework.cache.PortalManager;
-import xtqh.util.BeanUtil;
+import xtqh.framework.util.BeanUtil;
 
 @Service("BResourceService")
 public class BResourceServiceImpl implements BResourceService {

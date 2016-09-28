@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import xtqh.framework.base.BaseEntity;
+
 /**
  * 
  * @author Yan Fugen
@@ -16,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "SYSMENU")
-public class SysMenu {
+public class SysMenu extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MANAGEMENT")
@@ -32,7 +34,7 @@ public class SysMenu {
 	@Column(name = "DISPLAY_NAME", columnDefinition = "VARCHAR(500)")
 	private String displayName;
 
-	@Column(name = "DISPLAY Order", columnDefinition = "VARCHAR(25)")
+	@Column(name = "DISPLAY_Order", columnDefinition = "VARCHAR(25)")
 	private String displayOrder;
 
 	@Column(name = "URL", columnDefinition = "VARCHAR(1000)")

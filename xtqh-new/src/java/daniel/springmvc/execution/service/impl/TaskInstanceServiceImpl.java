@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import daniel.springmvc.execution.model.StepInstance;
 import daniel.springmvc.execution.model.TaskInstance;
 import daniel.springmvc.execution.service.TaskInstanceService;
-import xtqh.util.HibernateTools;
+import xtqh.framework.util.HibernateTools;
 
 @Service("TaskInstanceService")
 public class TaskInstanceServiceImpl extends HibernateTools implements TaskInstanceService {

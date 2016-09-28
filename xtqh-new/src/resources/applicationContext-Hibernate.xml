@@ -37,13 +37,14 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-	<!-- <property name="annotatedClasses"> <list> <value>xtqh.base.BaseEntity</value> 
-		<value>xtqh.execution.model.ProcessInstance</value> <value>xtqh.execution.model.TaskInstance</value> 
-		<value>xtqh.execution.model.StepInstance</value> <value>xtqh.execution.model.OperationInstance</value> 
-		</list> </property> -->
+		<!-- <property name="annotatedClasses"> <list> <value>xtqh.base.BaseEntity</value> 
+			<value>xtqh.execution.model.ProcessInstance</value> <value>xtqh.execution.model.TaskInstance</value> 
+			<value>xtqh.execution.model.StepInstance</value> <value>xtqh.execution.model.OperationInstance</value> 
+			</list> </property> -->
 		<property name="packagesToScan">
 			<list>
 				<value>xtqh.dao.entity</value>
+				<value>xtqh.framework.log.dao.entity</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -53,7 +54,7 @@
 				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.current_session_context_class">thread</prop>
 				<prop key="hibernate.generate_statistics">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
 	</bean>

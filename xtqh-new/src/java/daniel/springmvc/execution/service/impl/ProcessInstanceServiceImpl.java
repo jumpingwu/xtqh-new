@@ -13,7 +13,7 @@ import daniel.springmvc.execution.model.ProcessInstance;
 import daniel.springmvc.execution.model.TaskInstance;
 import daniel.springmvc.execution.service.ProcessInstanceService;
 import daniel.springmvc.execution.service.TaskInstanceService;
-import xtqh.util.HibernateTools;
+import xtqh.framework.util.HibernateTools;
 
 @Service("ProcessInstanceService")
 public class ProcessInstanceServiceImpl extends HibernateTools implements ProcessInstanceService {

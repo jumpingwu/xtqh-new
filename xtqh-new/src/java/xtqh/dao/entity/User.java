@@ -2,23 +2,29 @@ package xtqh.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import xtqh.framework.base.BaseEntity;
 
 @Entity
 @Table(name = "USER")
-public class User {
+public class User extends BaseEntity {
 	@Id
-	@Column(length = 500, name = "USER_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MANAGEMENT")
+	@SequenceGenerator(sequenceName = "SEQ_MANAGEMENT", name = "SEQ_MANAGEMENT")
 	private String userId;
 
-	@Column(length = 500, name = "USER_NAME")
+	@Column(name = "USER_NAME", columnDefinition = "VARCHAR(500)")
 	private String userName;
 
-	@Column(length = 50, name = "PASSWORD")
+	@Column(name = "PASSWORD", columnDefinition = "VARCHAR(50)")
 	private String password;
 
-	@Column(length = 25, name = "GROUP_ID")
+	@Column(name = "GROUP_ID",columnDefinition = "VARCHAR(25)")
 	private String groupId;
 
 	public String getUserId() {

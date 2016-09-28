@@ -10,72 +10,94 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="T_USER_OPERATION_LOG")
+@Table(name = "USER_OPERATION_LOG")
 public class OperationLog {
 	@Id
-	@Column(name="ID",length=50)
+	@Column(name = "ID", columnDefinition = "VARCHAR(50)")
 	private String id;
-	@Column(name="USER_ID",length=200)
-	private String userId;
-	@Column(name="LOGIN_IP")
-	private String loginIp;
-	@Column(name="TABLE_NAME")
-	private String tableName;
-	@Column(name="OPERATION",length=50)
-	private String operation;
-	@Column(name="OPERATION_CONTENT")
-	private String operationContent;
-	@Column(name="MODULE",length=50)
-	private String module;
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="OPERATION_TIME",length=50)
-	private Date operationTime;
 	
+	@Column(name = "USER_ID", columnDefinition = "VARCHAR(200)")
+	private String userId;
+	
+	@Column(name = "LOGIN_IP", columnDefinition = "VARCHAR(50)")
+	private String loginIp;
+	
+	@Column(name = "TABLE_NAME", columnDefinition = "VARCHAR(50)")
+	private String tableName;
+	
+	@Column(name = "OPERATION", columnDefinition = "VARCHAR(50)")
+	private String operation;
+	
+	@Column(name = "OPERATION_CONTENT", columnDefinition = "VARCHAR(2000)")
+	private String operationContent;
+	
+	@Column(name = "MODULE", columnDefinition = "VARCHAR(50)")
+	private String module;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "OPERATION_TIME")
+	private Date operationTime;
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getLoginIp() {
 		return loginIp;
 	}
+
 	public void setLoginIp(String loginIp) {
 		this.loginIp = loginIp;
 	}
+
 	public String getTableName() {
 		return tableName;
 	}
+
 	public void setTableName(String tableName) {
 		this.tableName = tableName;
 	}
+
 	public String getOperation() {
 		return operation;
 	}
+
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
+
 	public String getOperationContent() {
 		return operationContent;
 	}
+
 	public void setOperationContent(String operationContent) {
 		this.operationContent = operationContent;
 	}
+
 	public String getModule() {
 		return module;
 	}
+
 	public void setModule(String module) {
 		this.module = module;
 	}
+
 	public Date getOperationTime() {
 		return operationTime;
 	}
+
 	public void setOperationTime(Date operationTime) {
 		this.operationTime = operationTime;
 	}

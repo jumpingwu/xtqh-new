@@ -23,6 +23,9 @@ public class ApplicationContextLoaderListener implements ServletContextListener 
 		 * 加载sqlManager.xml
 		 */
 		
+		System.out.println("##############################################");
+		System.out.println("加载ConfigManager.xml，加载配置文件到内存");
+		System.out.println("##############################################");
 	}
 
 }

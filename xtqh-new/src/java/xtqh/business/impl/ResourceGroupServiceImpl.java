@@ -10,7 +10,7 @@ import xtqh.business.ResourceGroupService;
 import xtqh.business.bean.BResourceGroup;
 import xtqh.dao.entity.ResourceGroup;
 import xtqh.framework.base.orm.PersistService;
-import xtqh.util.HibernateTools;
+import xtqh.framework.util.HibernateTools;
 
 @Service("BResourceGroupService")
 public class ResourceGroupServiceImpl implements ResourceGroupService {
