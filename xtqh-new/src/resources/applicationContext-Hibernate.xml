@@ -75,13 +75,16 @@
 		</property>
 	</bean>
 
+	<bean id="jpaPersistence" class="xtqh.framework.base.orm.JpaPersistence">
+	</bean>
+	
 	<!-- Transaction Configuration -->
 	<bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	<aop:config>
-		<aop:pointcut id="txMonitorManagementMethods" expression="execution(* xtqh.business.impl..*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txMonitorManagementMethods" />
+		<aop:pointcut id="txManagementMethods" expression="execution(* xtqh.business.impl..*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txManagementMethods" />
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>

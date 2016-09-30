@@ -178,7 +178,7 @@ function viewResourceDetail(resourceId) {
  * @returns
  */
 function deleteResource(selectedData) {
-	//alert("detele resource!");
+	// alert("detele resource!");
 
 	if (!selectedData) {
 		selectedData = '';
@@ -200,20 +200,20 @@ function deleteResource(selectedData) {
 			},
 			success : function(data) {
 				if (data && data == 'success') {
-					Msg.info('成功', '成功删除选中的维护期');
+					alert('成功删除选中的维护期');
 					// 刷新列表
-					search();
+					searchResourceList();
 				} else {
-					Msg.error('错误', '删除失败!' + data);
+					alert('删除失败!' + data);
 				}
 			},
 			error : function(e, xhr) {
-				Msg.error('错误', '删除失败!');
+				alert('删除失败!');
 			}
 		});
 
 	} else {
-		Msg.alert('警告', '未选择任何服务器');
+		alert('未选择任何服务器');
 	}
 }
 
