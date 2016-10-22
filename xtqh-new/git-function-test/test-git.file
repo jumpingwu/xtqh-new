@@ -1,0 +1,2 @@
+this line was added when the file was newly created with the status of "untracked". I want to see if untracked file will be committed or not.
+I committed tht project but the untracked file was not even committed.
