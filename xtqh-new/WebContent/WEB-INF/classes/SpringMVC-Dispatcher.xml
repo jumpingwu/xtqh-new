@@ -58,6 +58,7 @@
 	<mvc:resources mapping="/pages/**/*.js" location="/pages/"
 		cache-period="31556928" />
 	<mvc:resources mapping="/login.jsp" location="/" />
+	
 	<mvc:resources mapping="/pages/common/500.jsp" location="/pages/common/"
 		cache-period="31556930" />
 	<mvc:resources mapping="/pages/common/403.jsp" location="/pages/common/"
