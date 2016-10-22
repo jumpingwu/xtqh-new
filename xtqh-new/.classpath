@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="src/test"/>
 	<classpathentry kind="src" path="src/resources"/>
 	<classpathentry kind="src" path="src/daniel"/>
+	<classpathentry kind="src" path="git-function-test"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
